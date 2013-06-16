@@ -1,4 +1,4 @@
-sicp
+SICP Exercises
 ====
 
 Solution of SICP
