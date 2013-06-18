@@ -1,1 +1,22 @@
-This is only a test
+(define (p) (p)) => p -> (p) //recursive call
+(define (test x y)
+	(if (= x 0)
+		0
+		y))
+
+Evaluate (test 0 (p))
+
+Applicative order: 
+Evaluate the arguments first and apply the operand ("test" in this case) => infinite loop
+
+Normal order: 
+1. "Fully expand and then reduce"
+2. the operands are not evaluated until necessary
+3. (p) will not be evaluated until its value is needed => 0
+
+
+
+reference:
+http://stackoverflow.com/questions/12377954/sicp-exercise-1-5-and-1-6
+http://www.billthelizard.com/2009/10/sicp-exercises-11-15.html
+https://gist.github.com/pastafari/3208989
