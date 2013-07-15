@@ -1,1 +1,18 @@
- 
+(define (new-if predicate then-clause else-clause)
+    (cond (predicate then-clause)
+          (else else-clause))
+
+(define (sqrt-iter guess x)
+    (new-if (good-enough? guess x)
+            guess
+            (sqrt-iter (improve guess x)
+                       x)))
+
+Hint: what's the difference between new-if and if?
+What is the outcome of the program?
+
+Lisp uses applicative order evaluation. new-if is a function and when a function is called, all arguments are evaluated. 
+if is not a function,( if <predicate> <consequent> <alternative> ) first evaluates the predicate ! (p.19)
+
+reference:
+http://stackoverflow.com/questions/1171252/whats-the-explanation-for-exercise-1-6-in-sicp

@@ -1,0 +1,7 @@
+1. (define (<name> <formal parameters>) <body>)
+2. applicative order vs. normal order
+3. (cond (<p1> <e1>)
+		 (<p2> <e2>)
+		 ...
+		 (<pn> <en>))
+4. (if <predicate> <consequent> <alternative>)
