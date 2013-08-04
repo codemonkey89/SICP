@@ -1,0 +1,35 @@
+f(n) = n (n < 3)
+f(n) = f(n-1) + 2f(n-2) + 3f(n-3) (n >= 3)
+
+recursive process:
+
+(define (recursive n)
+	cond((< n 3) n)
+		(else
+			(+ 
+				(recursive (- n 1) 
+				(* 2 (recursive (- n 2))) 
+				(* 3 (recursive (- n 3)))))))
+
+time = O(3^n)
+space = O(n)
+
+iterative proess:
+(define (iterative n)
+	cond((< n 3) n)
+		(else
+			(f-iter 0 1 2 (- n 2))))
+(define (f-iter a b c count)
+	(if(= 0 count)
+		c
+		(f-iter b c (+ c (* 2 b) (* 3 a)) (- count 1))))
+
+time = O(n)
+space = O(c)
+
+Thoughts:
+iterative process is harder. The key is to use variables to maintain the state of the iteration.
+it usually involves some sort of counter!
+
+reference:
+https://github.com/ivanjovanovic/sicp/blob/master/1.2/e-1.11.scm

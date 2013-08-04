@@ -1,0 +1,21 @@
+Q: Modify good-enough? function evaluates the incremental change from guesses
+
+(define (sqrt-iter guess x)
+	(if (good-enough? guess (improve guess x) x)
+		guess
+		(sqrt-iter (improve guess x) x)))
+
+(define (good-enough? guess next-guess x)
+	(< (abs(- guess next-guess)) (* guess 0.001)))
+
+Improved:
+(define (sqrt-iter guess x)
+	(if (good-enough? guess x)
+		guess
+		(sqrt-iter (improve guess x) x)))
+
+(define (good-enough? guess x)
+	(< (abs(- guess (improve guess x))) (* guess 0.001)))
+
+Thoughts:
+good-enough? already has a reference to x. no need to put (improve guess x) as parameter
